@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <h1 class="logo">Gallery</h1>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">Grid</button>
+                    <button class="view-btn" data-view="list">List</button>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for images..." class="search-input">
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <button class="upload-btn">Upload</button>
+                <div class="user-menu">
+                    <div class="user-avatar">U</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-filters">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="favorites">
+                    <span class="favorite-count">0</span> Favorites
+                </button>
+                <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="travel">Travel</button>
+                <button class="filter-btn" data-filter="people">People</button>
+                <button class="filter-btn" data-filter="architecture">Architecture</button>
+                <button class="filter-btn" data-filter="animals">Animals</button>
+            </div>
+            
+            <div class="grid-controls">
+                <span>Density:</span>
+                <button class="density-btn active" data-density="3">3</button>
+                <button class="density-btn" data-density="4">4</button>
+                <button class="density-btn" data-density="5">5</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search History Dropdown -->
+    <div class="search-history" id="searchHistory">
+        <div class="search-history-content">
+            <div class="search-history-header">
+                <h4>Recent Searches</h4>
+                <button class="clear-history">Clear</button>
+            </div>
+            <div class="search-history-items">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Gallery -->
+    <main class="main">
+        <div class="container">
+            <!-- Loading Skeleton -->
+            <div class="skeleton-grid" id="skeletonGrid">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid grid-view" id="galleryGrid">
+                <!-- Dynamic content -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">Load More Images</button>
+            </div>
+
+            <!-- Empty States -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">📷</div>
+                <h3>No images found</h3>
+                <p>Try adjusting your search or filters</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="error-state" id="errorState" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <h3>Failed to load images</h3>
+                <p>Please check your connection and try again</p>
+                <button class="retry-btn" id="retryBtn">Retry</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="close-btn" id="closeBtn">✕</button>
+            <button class="nav-btn prev-btn" id="prevBtn">‹</button>
+            <button class="nav-btn next-btn" id="nextBtn">›</button>
+            
+            <div class="lightbox-image-container">
+                <img src="" alt="" class="lightbox-img" id="lightboxImg">
+                <div class="image-loading">Loading...</div>
+            </div>
+
+            <div class="lightbox-info">
+                <div class="lightbox-header">
+                    <h3 class="image-title" id="imageTitle"></h3>
+                    <div class="lightbox-actions">
+                        <button class="action-btn favorite-btn" id="lightboxFavoriteBtn">
+                            <span class="heart-icon">♡</span>
+                        </button>
+                        <button class="action-btn download-btn" id="lightboxDownloadBtn">
+                            ⬇️ Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="image-credits" id="imageCredits">
+                    <!-- Photographer credits -->
+                </div>
+                
+                <div class="image-meta">
+                    <div class="meta-item">
+                        <strong>Camera:</strong>
+                        <span id="imageCamera"></span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Location:</strong>
+                        <span id="imageLocation"></span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Dimensions:</strong>
+                        <span id="imageDimensions"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script type="module" src="scripts/config.js"></script>
+    <script type="module" src="scripts/state.js"></script>
+    <script type="module" src="scripts/api.js"></script>
+    <script type="module" src="scripts/dom.js"></script>
+    <script type="module" src="scripts/search.js"></script>
+    <script type="module" src="scripts/favorites.js"></script>
+    <script type="module" src="scripts/ui.js"></script>
+    <script type="module" src="scripts/lightbox.js"></script>
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
