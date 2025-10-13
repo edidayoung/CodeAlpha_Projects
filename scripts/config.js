@@ -1,9 +1,0 @@
-// API Configuration
-const UNSPLASH_ACCESS_KEY = 'YOUR_API_KEY_HERE';
-const UNSPLASH_API_URL = 'https://api.unsplash.com';
-
-// App Constants
-const IMAGES_PER_PAGE = 20;
-const SEARCH_HISTORY_LIMIT = 10;
-
-export { UNSPLASH_ACCESS_KEY, UNSPLASH_API_URL, IMAGES_PER_PAGE, SEARCH_HISTORY_LIMIT };
