@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator - CodeAlpha-Project</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+  
+<body>
+  <div class="calculator">
+    <div class="display">
+      <input type="text" id="calc-display" readonly>
+    </div>
+
+    <div class="buttons">
+      <button id="clear-btn" class="btn action" data-action="clear">
+        AC
+      </button>
+      <button id="backspace-btn" class="btn action" data-action="backspace" title="backspace">
+        DEL
+      </button>
+      <button class="btn action" data-value="%">%</button>
+      <button class="btn operator" data-value="/">/</button>
+      <button class="btn number" data-value="7">7</button>
+      <button class="btn number" data-value="8">8</button>
+      <button class="btn number" data-value="9">9</button>
+      <button class="btn operator" data-value="*">*</button>
+      <button class="btn number" data-value="4">4</button>
+      <button class="btn number" data-value="5">5</button>
+      <button class="btn number" data-value="6">6</button>
+      <button class="btn operator" data-value="-">-</button>
+      <button class="btn number" data-value="1">1</button>
+      <button class="btn number" data-value="2">2</button>
+      <button class="btn number" data-value="3">3</button>
+      <button class="btn operator" data-value="+">+</button>
+      <button class="btn number" data-value=".">.</button>
+      <button class="btn number" data-value="0">0</button>
+
+      <button id="equals-btn" class="btn equals" data-action="equals" title="Equals">=</button>
+    </div>
+    <div class="history" id="history">
+      <div class="history-header">
+        <h3>History</h3>
+        <button id="clear-history-btn" class="btn action" data-action="clear-history">Clear</button>
+      </div>
+      <div class="history-contents"></div>
+    </div>
+  </div>
+  
+</body>
+</html>

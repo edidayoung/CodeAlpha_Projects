@@ -1,0 +1,1 @@
+**Progress Day 1:** Started working on the Basic Calculator task. Working my way up gradually to the more complex Projects Step by Step.
