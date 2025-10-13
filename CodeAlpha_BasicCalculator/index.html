@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basic Calculator - CodeAlpha-Project</title>
+  
+  <title>Calculator with Slim History Clear</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -39,15 +40,26 @@
       <button class="btn number" data-value="0">0</button>
 
       <button id="equals-btn" class="btn equals" data-action="equals" title="Equals">=</button>
+
+       <div class="theme-toggle">
+      <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
+      <label for="dark-mode-toggle" class="toggle-label">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+      <span class="toggle-ball"></span>
+      </label>
     </div>
-    <div class="history" id="history">
+    </div>
+
+   <div class="history collapsed" id="history">
       <div class="history-header">
-        <h3>History</h3>
-        <button id="clear-history-btn" class="btn action" data-action="clear-history">Clear</button>
+        <h3>HISTORY</h3>
+        <button id="clear-history-btn" class="btn action" data-action="clear-history">CLEAR</button>
       </div>
-      <div class="history-contents"></div>
+      <div class="history-content"></div>
     </div>
   </div>
-  
+
+ <script src="scripts.js"></script>
 </body>
 </html>
