@@ -3,13 +3,12 @@
 *{  
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
+  box-sizing: border-box
 }
 
 /* === BACKGROUND DESIGN === */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -389,7 +388,7 @@ body.light-mode .history-item {
 @media (max-width: 600px) {
 
     body {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Nunito', sans-serif;
         align-items: center;
     }
 
