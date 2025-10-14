@@ -385,6 +385,7 @@ body.light-mode .history-item {
 }
 
 /* === RESPONSIVE DESIGN FOR SMALL SCREENS === */
+
 @media (max-width: 600px) {
 
     body {
