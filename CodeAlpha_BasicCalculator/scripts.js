@@ -10,12 +10,16 @@ let currentInput = "";
 let history = [];
 let resultShown = false;
 
+/**** HISTORY FIELD HANDLING *****/
+
 historyHeader.addEventListener('click', (e) => {
   if (e.target === clearHistoryBtn || e.target.closest('#clear-history-btn')) {
     return;
   }
   historyElement.classList.toggle('collapsed');
 });
+
+/**** BUTTONS AND CLICK EVENTS *****/
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -36,6 +40,8 @@ buttons.forEach((btn) => {
   });
 });
 
+/**** CORE CALCULATOR LOGIC | CLEARS SCREEN AFTER ANSWER *****/
+
 function appendValue(value) {
   if (resultShown) {
     currentInput = "";
@@ -44,6 +50,8 @@ function appendValue(value) {
   currentInput += value;
   display.value = currentInput;
 }
+
+/**** CALCULATION, HISTORY, AND ERROR HANDLING *****/
 
 function clearDisplay() {
   currentInput = "";
@@ -81,6 +89,8 @@ function calculateResult() {
   }
 }
 
+/**** HISTORY FIELD *****/
+
 function addToHistory(expr, res) {
   history.push({ expr, res });
 
@@ -100,11 +110,15 @@ function addToHistory(expr, res) {
   }
 }
 
+/**** CLEAR HISTORY *****/
+
 function clearHistory() {
   history = [];
   historyContainer.innerHTML = "";
   historyElement.classList.add('collapsed');
 }
+
+/**** KEYBOARD SUPPORT *****/
 
 document.addEventListener("keydown", (e) => {
   if ((e.key >= "0" && e.key <= "9") || "+-*/.%".includes(e.key)) {
@@ -117,6 +131,8 @@ document.addEventListener("keydown", (e) => {
     clearDisplay();
   }
 });
+
+/**** LIGTH AND DARK MODE TOGGLE *****/
 
 const body = document.body;
 

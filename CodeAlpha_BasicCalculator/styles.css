@@ -7,6 +7,7 @@
   font-family: "Nunito", sans-serif;
 }
 
+/* === BACKGROUND DESIGN === */
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -384,13 +385,12 @@ body.light-mode .history-item {
   border-bottom-color: rgba(255, 193, 7, 0.2);
 }
 
-/* === RESPONSIVE DESIGN  === */
+/* === RESPONSIVE DESIGN FOR SMALL SCREENS === */
 @media (max-width: 600px) {
+
     body {
-        padding: 20px;
-        min-height: 100vh;
-        align-items: flex-start;
-        padding-top: 40px;
+        font-family: 'Poppins', sans-serif;
+        align-items: center;
     }
 
     .calculator {
