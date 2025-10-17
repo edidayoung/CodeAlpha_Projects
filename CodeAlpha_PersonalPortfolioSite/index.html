@@ -3,12 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>My Portfolio</title>
+
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/mobile.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-  <section class="header"></section>
+  <section class="header">
+    <nav>
+      <a href="index.html" class="logo"><i class="fa-solid fa-diamond"></i> Edidayoung</a>
+      <div class="nav-links">
+        <i class="fa-solid fa-xmark"></i>
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+            <a href="index.html">Bio</a>
+            <a href="index.html">Projects</a>
+            <a href="index.html">Skills</a>
+            <a href="index.html" class="nav-contact">Contact <i class="fa-regular fa-paper-plane"></i></a>
+          </li>
+        </ul>
+      </div>
+      <i class="fa-solid fa-bars"></i>
+    </nav>
+
+
+ <div class="hero-content">
+  <!-- Left Side - Text Content -->
+  <div class="hero-text">
+    <h1 class="main-heading">Hi! I'm Edidayoung</h1>
+    
+    <!-- ADD THIS ROTATING TEXT SECTION -->
+    <div class="typewriter-container">
+      <div class="rotating-title">
+        <div class="rotating-text">Frontend Developer</div>
+        <div class="rotating-text">UI/UX Designer</div>
+        <div class="rotating-text">Creative Thinker</div>
+        <div class="rotating-text">Problem Solver</div>
+        <div class="rotating-text">Tech Enthusiast</div>
+        <div class="rotating-text">Digital Creator</div>
+      </div>
+    </div>
+    <!-- END ROTATING TEXT -->
+    
+    <h3 class="sub-heading">
+      Passionate about creating digital experiences that are both beautiful and functional. 
+      Let's build something amazing together!
+    </h3>
+    
+    <div class="hero-buttons">
+      <button class="btn btn-resume">
+        <i class="fas fa-download"></i>
+        Get Resume
+      </button>
+      <button class="btn btn-talk">
+        <i class="fas fa-comment-dots"></i>
+        Let's Talk
+      </button>
+    </div>
+    
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">2+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Projects Done</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+    </div>
+  </div>
   
+  <!-- Right Side - Visual Elements (Keep this exactly as is) -->
+  <div class="hero-visual">
+    <div class="shape-container">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+      <div class="profile-container">
+        <i class="fas fa-user profile-icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+  </section>
+
+  <section>
+    <div class="about-me">
+      <h2>Bio</h2>
+      <p>
+        I'm Edidayoung, a passionate Frontend Developer and UI/UX Designer with over 2 years of experience in crafting beautiful and functional digital experiences. I specialize in creating responsive websites and applications that not only look great but also provide an intuitive user experience.
+      </p>
+      <p>
+        My journey in tech started with a fascination for design and technology, leading me to pursue a career where I can combine both. I thrive on solving complex problems and turning ideas into reality through code and design.
+      </p>
+      <p>
+        When I'm not coding or designing, you'll find me exploring the latest tech trends, experimenting with new design tools, or collaborating with fellow creatives on exciting projects.
+      </p>
+      <p>
+        Let's connect and create something amazing together!
+      </p>
+    </div>
+
+
+  </section>
+
+  <!--Scripts-->
+  <script src="scripts.js"></script>
 </body>
 </html>
