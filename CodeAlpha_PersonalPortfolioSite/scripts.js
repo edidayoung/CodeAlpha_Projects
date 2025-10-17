@@ -11,7 +11,6 @@ closeIcon.addEventListener('click', () => {
     navLinks.style.right = "-200px";
 });
 
-// Close menu when clicking on links
 const navItems = document.querySelectorAll('.nav-links a');
 navItems.forEach(item => {
     item.addEventListener('click', () => {
