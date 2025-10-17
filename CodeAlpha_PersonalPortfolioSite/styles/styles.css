@@ -26,6 +26,10 @@
   --border-radius: 12px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===== BASE STYLES ===== */
 body {
   background-color: var(--bg-dark);
