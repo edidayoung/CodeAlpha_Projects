@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('flipped');
         });
     });
-
-    // Close cards when clicking outside
+    
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.bio-card')) {
             cards.forEach(card => {
