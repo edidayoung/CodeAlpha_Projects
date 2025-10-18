@@ -1,6 +1,12 @@
 /******Small Devices******/
 
 @media (max-width: 700px) {
+
+   body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -60,6 +66,12 @@
 
 /****** Tablet Devices (701px - 900px) ******/
 @media (min-width: 701px) and (max-width: 900px) {
+
+   body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   /* Navigation adjustments */
   nav {
     padding: 1rem 4%;
@@ -175,6 +187,11 @@
 /****** Small Tablet Devices Demi-Split-Second Lag ******/
 @media (max-width: 765px) {
 
+   body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
    nav {
     padding: 1rem 2%;
   }
@@ -212,6 +229,11 @@
 
 /****** Small Tablet Devices (701px - 765px) ******/
 @media (min-width: 701px) and (max-width: 765px) {
+
+   body {
+    overflow-x: hidden;
+    width: 100%;
+  }
 
   .nav-links ul {
     display: flex;
