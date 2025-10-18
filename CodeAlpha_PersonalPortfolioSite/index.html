@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="styles/mobile.css">
+  <link rel="stylesheet" href="styles/bio.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -98,40 +99,140 @@
 
   </section>
 
-  <section>
-    <div class="Bio" id="bio">
-      <!--My Boi Scetion: To be continued. . .-->
-      <h2>Bio</h2>
+  <section class="bio-section" id="bio">
+  <div class="bio-3d-container">
+    <h2 class="bio-3d-title">Behind the Code</h2>
+    
+    <div class="bio-3d-cards">
+      
+      <!-- Card 1: Who I Am -->
+      <div class="bio-card" data-card="1">
+        <div class="card-front">
+          <div class="card-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3>Who I Am</h3>
+          <p>Get to know me</p>
+          <div class="card-hint">Click Me</div>
+        </div>
+        <div class="card-back">
+          <h3>Edidayoung</h3>
+          <p class="card-role">Frontend Developer & Email Specialist</p>
+          <div class="card-bio">
+            <p>Passionate developer currently studying at Aptech, transforming ideas into digital experiences through clean code and intuitive design.</p>
+          </div>
+          <div class="card-stats">
+            <div class="mini-stat">
+              <span>3+ Months</span>
+            </div>
+            <div class="mini-stat">
+              <span>50k+ Code</span>
+            </div>
+            <div class="mini-stat">
+              <span>99% Learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <h3>BUILDING IN PROGRESS . . .</h3>
-      <p>
-        Believe it or not, the Above single section took over 5 hours of intense coding. . . Hold up, wait a minuite, Firstly, I'm Edidayoung, a passionate Frontend Developer and Email Specialist who believes that great design happens when creativity meets persistence. <br>
-        <br>
-        Case in point: the header section you're looking at right now!
-        <br><br>
-      </p>
-      <p>
-        Believe it or not, this single section took over 5 hours of intense coding, 7 Sachetes of 60cl of Water, and countless "WTF!" and "Aha!" moments. 
-        <br><br>
-        From wrestling with CSS animations to getting that perfect yellow gradient that matches my personality - it was all in one a journey of trial, error, and hey the journey is just getting started!
-        <br><br>
-      </p>
-      <p>
+      <!-- Card 2: My Journey -->
+      <div class="bio-card" data-card="2">
+        <div class="card-front">
+          <div class="card-icon">
+            <i class="fas fa-road"></i>
+          </div>
+          <h3>My Journey</h3>
+          <p>From start to now</p>
+          <div class="card-hint">Click Me</div>
+        </div>
+        <div class="card-back">
+          <div class="journey-compact">
+            <div class="journey-step">
+              <span class="step-year">2021</span>
+              <p>Started at Aptech</p>
+            </div>
+            <div class="journey-step">
+              <span class="step-year">2023</span>
+              <p>Advanced Skills</p>
+            </div>
+            <div class="journey-step">
+              <span class="step-year">2024</span>
+              <p>Graduated ADSE</p>
+            </div>
+            <div class="journey-step">
+              <span class="step-year">2025</span>
+              <p>Building Future</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        At one point, the rotating text animation had a mind of its own, displaying all six titles at once like an excited puppy. And don't get me started on the floating shapes, they kept escaping the container like digital Houdinis! But every bug fixed felt like solving a mini puzzle.
-        <br><br>
-      </p>
-      <p>
-        This header represents my approach to development: relentless problem-solving with a dash of humor. If I can spend 5 hours perfecting one section to create the perfect first impression, imagine what I can do with your entire project!
-        <br><br>
-      </p>
-      <p>
-        Ready to build something equally amazing (hopefully with fewer coffee breaks)? Let's connect and create magic together!
-      </p>
+      <!-- Card 3: My Passions -->
+      <div class="bio-card" data-card="3">
+        <div class="card-front">
+          <div class="card-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>My Passions</h3>
+          <p>What drives me</p>
+          <div class="card-hint">Click Me</div>
+        </div>
+        <div class="card-back">
+          <div class="passions-compact">
+            <div class="passion">
+              <i class="fas fa-code"></i>
+              <h4>Coding</h4>
+              <p>Building digital solutions</p>
+            </div>
+            <div class="passion">
+              <i class="fas fa-gamepad"></i>
+              <h4>Gaming</h4>
+              <p>Strategy & creativity</p>
+            </div>
+            <div class="passion">
+              <i class="fas fa-chart-line"></i>
+              <h4>Growth</h4>
+              <p>Always learning</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: My Vision -->
+      <div class="bio-card" data-card="4">
+        <div class="card-front">
+          <div class="card-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>My Vision</h3>
+          <p>Future goals</p>
+          <div class="card-hint">Click Me</div>
+        </div>
+        <div class="card-back">
+          <div class="vision-compact">
+            <div class="vision-goal">
+              <i class="fas fa-rocket"></i>
+              <p>Full-Stack Mastery</p>
+            </div>
+            <div class="vision-goal">
+              <i class="fas fa-briefcase"></i>
+              <p>Dream Career</p>
+            </div>
+            <div class="vision-goal">
+              <i class="fas fa-users"></i>
+              <p>Tech Community</p>
+            </div>
+            <div class="vision-goal">
+              <i class="fas fa-lightbulb"></i>
+              <p>Innovate & Impact</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-
-  </section>
+  </div>
+</section>
 
   <!--Scripts-->
   <script src="scripts.js"></script>
