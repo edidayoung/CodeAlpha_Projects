@@ -15,6 +15,12 @@
   
   .hero-visual {
     margin-top: 0.7rem;
+    display: none !important;
+  }
+
+   .hero-text {
+    margin: 0 auto;
+    max-width: 100%;
   }
 
   .nav-links ul {

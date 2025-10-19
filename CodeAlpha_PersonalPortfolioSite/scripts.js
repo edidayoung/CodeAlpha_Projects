@@ -1,3 +1,9 @@
+window.addEventListener('load', function() {
+    // Remove hash from URL without triggering scroll
+    history.replaceState(null, null, ' ');
+    // Then scroll to top
+    window.scrollTo(0, 0);
+});
 // Mobile menu toggle functionality
 const menuIcon = document.querySelector('.fa-bars');
 const closeIcon = document.querySelector('.fa-xmark');
@@ -17,6 +23,16 @@ if (menuIcon && closeIcon && navLinks) {
         item.addEventListener('click', () => {
             navLinks.style.right = "-200px";
         });
+    });
+
+     // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        // Check if click is outside the nav menu and menu is open
+        if (!navLinks.contains(e.target) && 
+            !menuIcon.contains(e.target) && 
+            navLinks.style.right === "0px") {
+            navLinks.style.right = "-200px";
+        }
     });
 }
 
