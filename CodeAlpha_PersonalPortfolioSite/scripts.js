@@ -39,3 +39,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Skill bars that fill when hovering the entire card
+function initializeSkillBars() {
+  const skillCategories = document.querySelectorAll('.skill-category');
+  
+  skillCategories.forEach(category => {
+    const progressBars = category.querySelectorAll('.skill-progress');
+    const percentTexts = category.querySelectorAll('.skill-percent');
+    
+    // Store target widths for each progress bar in the category
+    progressBars.forEach((bar, index) => {
+      const targetLevel = bar.getAttribute('data-level');
+      bar.style.setProperty('--target-width', targetLevel + '%');
+      
+      // Hover event for entire category
+      category.addEventListener('mouseenter', () => {
+        bar.style.width = targetLevel + '%';
+        percentTexts[index].textContent = targetLevel + '%';
+      });
+      
+      // Mouse leave to reset
+      category.addEventListener('mouseleave', () => {
+        bar.style.width = '0%';
+        percentTexts[index].textContent = '0%';
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initializeSkillBars);

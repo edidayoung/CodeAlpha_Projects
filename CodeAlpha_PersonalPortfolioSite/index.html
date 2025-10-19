@@ -8,13 +8,16 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="styles/mobile.css">
   <link rel="stylesheet" href="styles/bio.css">
+  <link rel="stylesheet" href="styles/projects.css">
+  <link rel="stylesheet" href="styles/skills.css">
+  <link rel="stylesheet" href="styles/footer.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
-  <section class="header">
+  <section class="header" id="home">
     <nav>
       <a href="index.html" class="logo"><i class="fa-solid fa-diamond"></i> Edidayoung</a>
       <div class="nav-links">
@@ -23,8 +26,8 @@
           <li>
             <a href="index.html">Home</a>
             <a href="#bio">Bio</a>
-            <a href="index.html">Projects</a>
-            <a href="index.html">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
             <a href="mailto:ekaetteedidiong0@gmail.com" class="nav-contact">Contact <i class="fa-regular fa-paper-plane"></i></a>
           </li>
         </ul>
@@ -233,6 +236,366 @@
     </div>
   </div>
 </section>
+
+
+<!-----Projects------>
+
+<section class="projects-section" id="projects">
+  <div class="projects-container">
+    <h2 class="projects-title">My Creations</h2>
+    <p class="projects-subtitle">Real projects I've built to practice and showcase my skills</p>
+    
+    <div class="projects-grid">
+      
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/gitUserFinder.png" alt="GitHub User Finder" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="https://edidayoung.github.io/100-days-of-code/Project03-github-profile-finder/index.html" class="project-link" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+              <a href="https://github.com/edidayoung/100-days-of-code/tree/master/Project03-github-profile-finder" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-tech">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>API</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>GitHub User Finder</h3>
+          <p>A web application that searches for GitHub users and displays their profiles, repositories, and coding statistics using the GitHub API.</p>
+          <div class="project-features">
+            <span>GitHub API Integration</span>
+            <span>User Search</span>
+            <span>Profile Display</span>
+            <span>Repository List</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/calculator.png" alt="Calulator App" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="https://edidayoung.github.io/CodeAlpha_Projects/CodeAlpha_BasicCalculator/index.html" class="project-link" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+              <a href="https://github.com/edidayoung/CodeAlpha_Projects/tree/main/CodeAlpha_BasicCalculator" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-tech">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Modern Calculator</h3>
+          <p>A sleek, fully functional calculator with advanced features including theme switching and responsive design.</p>
+          <div class="project-features">
+            <span>Dark/Light Mode Toggle</span>
+            <span>Basic Operations</span>
+            <span>Keyboard Support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/todo.png" alt="Todo App" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="https://edidayoung.github.io/100-days-of-code/Project01-ToDo-App/todo-index.html" class="project-link" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+              <a href="https://github.com/edidayoung/100-days-of-code/tree/master/Project01-ToDo-App" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-tech">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Simple ToDo App</h3>
+          <p>A clean and intuitive todo application that helps users check-list their daily tasks efficiently.</p>
+          <div class="project-features">
+            <span>Add/Delete Tasks</span>
+            <span>Local Storage</span>
+            <span>Clean UI</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="projects-cta">
+      <p>Want to see more of my work?</p>
+      <a href="https://github.com/edidayoung?tab=repositories" class="cta-btn" target="_blank">
+        <i class="fab fa-github"></i>
+        View My GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!------Skills Section---->
+
+<section class="skills-section" id="skills">
+  <div class="skills-container">
+    <h2 class="skills-title">My Skills</h2>
+    <p class="skills-subtitle">Technologies and tools I work with</p>
+    
+    <div class="skills-grid">
+      
+      <!-- Frontend Skills -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class="fas fa-code"></i>
+          <h3>Frontend Development</h3>
+        </div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <span class="skill-name">HTML5</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="95"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">CSS3</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="90"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">JavaScript</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="82"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">React</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="55"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Others -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class="fas fa-tools"></i>
+          <h3>Tools & Others</h3>
+        </div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <span class="skill-name">Git & GitHub</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="89"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Responsive Design</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="95"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">API Integration</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="70"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Problem Solving</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="90"></div>
+            </div>
+            <span class="skill-percent">0%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tech Stack Icons - Horizontal on wide screens -->
+    <div class="tech-stack">
+      <h3>Tech Stack</h3>
+      <div class="tech-icons">
+        <div class="tech-icon">
+          <i class="fab fa-html5"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-css3-alt"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-js-square"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-react"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-git-alt"></i>
+          <span>Git</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-figma"></i>
+          <span>Figma</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer-section">
+  <div class="footer-container">
+
+    <!-----FFFOOOOTTTEEEERRR----->
+    
+    <!-- Main Footer Content -->
+    <div class="footer-content">
+      
+      <!-- Brand Section -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i class="fa-solid fa-diamond"></i>
+          <span>Edidayoung</span>
+        </div>
+        <p class="footer-tagline">Turning ideas into digital experiences, one line of code at a time 🚀</p>
+        <div class="footer-stats">
+          <div class="footer-stat">
+            <span class="stat-number">50k+</span>
+            <span class="stat-label">Lines of Code</span>
+          </div>
+          <div class="footer-stat">
+            <span class="stat-number">99%</span>
+            <span class="stat-label">Coffee Powered</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="mailto:ekaetteedidiong0@gmail.com" target="_blank">Get in Touch</a></li>
+        </ul>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="footer-tech">
+        <h4>Tech Arsenal</h4>
+        <div class="tech-tags">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>Git</span>
+          <span>GitHub</span>
+          <span>API Integration</span>
+          <span>Responsive Design</span>
+          <span>Web Apps</span>
+        </div>
+      </div>
+
+      <!-- Contact & Social -->
+      <div class="footer-contact">
+        <h4>Let's Connect</h4>
+        <div class="contact-info">
+          <a href="mailto:ekaetteedidiong0@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i>
+            ekaetteedidiong0@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/edidiong-ekaette" class="contact-link" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+          <a href="https://github.com/edidayoung" class="contact-link" target="_blank">
+            <i class="fab fa-github"></i>
+            GitHub
+          </a>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="https://linkedin.com/in/edidiong-ekaette" class="social-link" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/edidayoung" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/edida_young" class="social-link" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/edidayoung?igsh=eW5uNWR4eWttbGVs" class="social-link" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-message">
+        <p>Built with <i class="fas fa-heart" style="color: #ff4757;"></i> and <i class="fas fa-coffee" style="color: #8B4513;"></i> by Edidayoung</p>
+        <p class="footer-quote">"Great developers don't just write code, they create experiences"</p>
+      </div>
+      
+      <div class="footer-copyright">
+        <p>&copy; 2025 Edidayoung. All rights reserved. | Made with passion from Nigeria 🇳🇬</p>
+        <div class="footer-badges">
+          <span class="badge">🚀 Available for projects</span>
+          <span class="badge">💼 Open to opportunities</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+      <a href="mailto:ekaetteedidiong0@gmail.com" class="cta-button" target="_blank">
+        <i class="fas fa-paper-plane"></i>
+        Let's Build Something Amazing!
+      </a>
+    </div>
+
+  </div>
+</footer>
 
   <!--Scripts-->
   <script src="scripts.js"></script>
