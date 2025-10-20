@@ -74,19 +74,6 @@
     background: rgba(255, 235, 59, 0.1);
   }
 
-  /* .nav-links {
-    position: absolute;
-    background-color: var(--card-bg);
-    height: 100vh;
-    width: 200px;
-    top: 0;
-    right: -200px;
-    text-align: left;
-    z-index: 2;
-    padding: 0 1rem;
-    transition: right 1s ease;
-  } */
-
   nav .fa-bars, nav .fa-xmark {
     display: block;
     color: var(--primary-color);
@@ -100,15 +87,29 @@
 }
 
 /****** Tablet Devices (701px - 900px) ******/
-/* @media (min-width: 701px) and (max-width: 900px) {
+@media (min-width: 701px) and (max-width: 900px) {
 
-   body {
+ * {
+    max-width: 100%;
+  }
+
+   html, body {
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     width: 100%;
-  } */
+    position: relative;
+  }
 
+   .header, .bio-section, .projects-section, .skills-section, .footer-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 0 1rem;
+  }
+  
   /* Navigation adjustments */
-  /* nav {
+  nav {
     padding: 1rem 4%;
   }
   
@@ -128,10 +129,10 @@
   
   .logo i {
     font-size: 2.2rem;
-  } */
+  }
 
   /* Hero content adjustments */
-  /* .hero-content {
+  .hero-content {
     padding: 0 4%;
     gap: 2.5rem;
   }
@@ -163,10 +164,10 @@
   .btn {
     padding: 0.8rem 1.5rem;
     font-size: 0.95rem;
-  } */
+  }
 
   /* Right side visual adjustments */
-  /* .hero-visual {
+  .hero-visual {
     height: 350px;
   }
   
@@ -203,10 +204,10 @@
     height: 80px;
     top: 180px;
     left: 70px;
-  } */
+  }
 
   /* Stats adjustments */
-  /* .hero-stats {
+  .hero-stats {
     gap: 1.5rem;
   }
   
@@ -217,15 +218,30 @@
   .stat-label {
     font-size: 0.8rem;
   }
-} */
+}
 
 /****** Small Tablet Devices Demi-Split-Second Lag ******/
-/* @media (max-width: 765px) {
+@media (max-width: 765px) {
 
-   body {
+   * {
+    max-width: 100%;
+  }
+
+   html, body {
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     width: 100%;
+    position: relative;
   }
+
+   .header, .bio-section, .projects-section, .skills-section, .footer-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 0 1rem;
+  }
+  
 
    nav {
     padding: 1rem 2%;
@@ -260,15 +276,30 @@
     width: 280px;
     height: 280px;
   }
-} */
+}
 
 /****** Small Tablet Devices (701px - 765px) ******/
-/* @media (min-width: 701px) and (max-width: 765px) {
+@media (min-width: 701px) and (max-width: 765px) {
 
-   body {
+    * {
+    max-width: 100%;
+  }
+
+   html, body {
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     width: 100%;
+    position: relative;
   }
+
+   .header, .bio-section, .projects-section, .skills-section, .footer-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 0 1rem;
+  }
+  
 
   .nav-links ul {
     display: flex;
@@ -335,4 +366,4 @@
     width: 280px;
     height: 280px;
   }
-} */
+}
