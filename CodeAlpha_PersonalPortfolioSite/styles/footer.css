@@ -289,25 +289,30 @@
 }
 
 /* Mobile Responsive */
+/****** Mobile Footer Fixes ******/
 @media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .footer-section {
+    padding: 3rem 5% 2rem;
     text-align: center;
   }
 
-  /* Center Quick Navigation */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  /* Center the Quick Navigation */
   .footer-links {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
   }
 
   .footer-links h4 {
-    width: 100%;
     text-align: center;
+    width: 100%;
   }
 
   .footer-links ul {
@@ -326,17 +331,17 @@
     padding: 0.5rem 0;
   }
 
+  /* Center the Contact & Social section */
   .footer-contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
   }
 
   .footer-contact h4 {
-    width: 100%;
     text-align: center;
+    width: 100%;
   }
 
   .contact-info {
@@ -358,29 +363,98 @@
     width: 100%;
     margin-top: 1rem;
   }
-  
+
+  /* Center the brand section */
+  .footer-brand {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
   .footer-logo {
     justify-content: center;
   }
-  
+
   .footer-stats {
     justify-content: center;
   }
-  
+
+  /* Center the tech section */
+  .footer-tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-tech h4 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .tech-tags {
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Center footer bottom */
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
   }
-  
+
   .footer-copyright {
     text-align: center;
   }
-  
+
   .footer-badges {
     justify-content: center;
+    align-items: center;
   }
-  
-  .floating-cta {
+}
+
+/****** Small Mobile Devices (max-width: 480px) ******/
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 2rem 4% 1rem;
+  }
+
+  .footer-content {
+    gap: 2rem;
+  }
+
+  .footer-links ul {
+    gap: 0.5rem;
+  }
+
+  .contact-info {
+    gap: 0.8rem;
+  }
+
+  .social-links {
+    gap: 0.8rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .tech-tags {
+    gap: 0.4rem;
+  }
+
+  .tech-tags span {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+  }
+}
+
+.floating-cta {
     bottom: 1rem;
     right: 1rem;
     left: 1rem;
@@ -391,4 +465,3 @@
     font-size: 0.9rem;
     padding: 0.8rem 1.2rem;
   }
-}
