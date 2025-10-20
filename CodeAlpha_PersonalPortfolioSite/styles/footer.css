@@ -289,9 +289,8 @@
 }
 
 /* Mobile Responsive */
-/****** Mobile Footer Fixes ******/
 @media (max-width: 768px) {
-  .footer-section {
+   .footer-section {
     padding: 3rem 5% 2rem;
     text-align: center;
   }
@@ -414,47 +413,8 @@
     justify-content: center;
     align-items: center;
   }
-}
-
-/****** Small Mobile Devices (max-width: 480px) ******/
-@media (max-width: 480px) {
-  .footer-section {
-    padding: 2rem 4% 1rem;
-  }
-
-  .footer-content {
-    gap: 2rem;
-  }
-
-  .footer-links ul {
-    gap: 0.5rem;
-  }
-
-  .contact-info {
-    gap: 0.8rem;
-  }
-
-  .social-links {
-    gap: 0.8rem;
-  }
-
-  .social-link {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-
-  .tech-tags {
-    gap: 0.4rem;
-  }
-
-  .tech-tags span {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.75rem;
-  }
-}
-
-.floating-cta {
+  
+  .floating-cta {
     bottom: 1rem;
     right: 1rem;
     left: 1rem;
@@ -465,3 +425,4 @@
     font-size: 0.9rem;
     padding: 0.8rem 1.2rem;
   }
+}
