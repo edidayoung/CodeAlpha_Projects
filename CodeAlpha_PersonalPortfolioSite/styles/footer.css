@@ -295,6 +295,69 @@
     gap: 2rem;
     text-align: center;
   }
+
+  /* Center Quick Navigation */
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-links h4 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-links ul {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-links li {
+    text-align: center;
+    width: auto;
+  }
+
+  .footer-links a {
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-contact h4 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-info {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .contact-link {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .social-links {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
   
   .footer-logo {
     justify-content: center;
