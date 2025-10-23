@@ -1,5 +1,5 @@
 // Unsplash API Configuration
-const UNSPLASH_ACCESS_KEY = '2U2TjasTJwi1mL4-8Xeh211qJ93CIbh-UsFL5w0F7zQ';
+const UNSPLASH_ACCESS_KEY = CONFIG.UNSPLASH_ACCESS_KEY;
 const UNSPLASH_API_URL = 'https://api.unsplash.com';
 
 // DOM Elements
@@ -18,8 +18,8 @@ let isLoading = false;
 // Page content configurations
 const pageContent = {
     explore: {
-        title: 'Glacial Explorations',
-        subtitle: 'Discover breathtaking glacial landscapes and icy wonders from around the world'
+        title: 'Visual Escapes',
+        subtitle: 'Discover breathtaking journey through frozen moments and fleeting emotions'
     },
     collections: {
         title: 'Ice Collections',
@@ -41,13 +41,13 @@ const pageContent = {
         title: 'Lifestyle Collection',
         subtitle: 'Daily life and activities in winter wonderlands'
     },
-    iceLens: {
+    icelens: {
         title: 'Ice Lens',
         subtitle: 'Photographic masterpieces through the lens of winter artists'
     },
-    frozenFrames: {
-        title: 'Frozen Frames',
-        subtitle: 'Your personal gallery of captured icy moments and memories'
+    frozenframes: {
+        title: 'Your Frozen Frames',
+        subtitle: 'Organize and manage your personal collection of ice-themed photographs'
     }
 };
 
@@ -139,12 +139,10 @@ function handleNavigation(navItem) {
 
 // Handle category clicks with refresh functionality
 function handleCategoryClick(category) {
-    // If clicking the same category, force refresh with new photos
+    // If clicking the same category, force refresh with new random photos
     if (currentCategory === category) {
         currentPage = 1;
-        // Force new query to get different results
-        currentQuery = category + ' ' + Date.now();
-        loadImages();
+        loadImages(); // This will fetch new random photos for the same category
         return;
     }
     
@@ -163,42 +161,108 @@ function handleCategoryClick(category) {
 }
 
 // Load Ice Lens specialized educational content
+// Load Ice Lens - Stories Behind the Frames
 function loadIceLensContent() {
+    // Update header content for Ice Lens
+    headerTitle.textContent = 'Ice Lens';
+    headerSubtitle.textContent = 'Explore the art and science behind capturing frozen moments. Learn from professional photographers and their techniques';
+    
     showLoading();
     
-    // Simulate loading
-    setTimeout(() => {
-        const iceLensHTML = `
-            <div class="ice-lens-intro">
-                <h3>Professional Winter Photography</h3>
+    // Load stories with any type of photos that have interesting stories
+    loadStoriesBehindFrames();
+}
+
+// Load Stories Behind the Frames
+async function loadStoriesBehindFrames() {
+    try {
+        // Search for photos that might have interesting stories
+        const queries = [
+            'storytelling photography',
+            'documentary photography', 
+            'photojournalism',
+            'conceptual photography',
+            'emotional photography',
+            'human stories',
+            'cultural photography',
+            'historical photography'
+        ];
+        
+        const randomQuery = queries[Math.floor(Math.random() * queries.length)];
+        const url = `${UNSPLASH_API_URL}/search/photos?query=${encodeURIComponent(randomQuery)}&per_page=8&orientation=landscape`;
+
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `Client-ID ${UNSPLASH_ACCESS_KEY}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch stories');
+        }
+
+        const data = await response.json();
+        
+        // Create story cards with fictional stories since Unsplash doesn't provide actual stories
+        const storiesHTML = data.results.map((photo, index) => {
+            const stories = [
+                "This image was captured during a spontaneous road trip when the photographer stumbled upon this scene at golden hour. The play of light and shadow tells a story of fleeting moments and unexpected beauty.",
+                "After weeks of planning and waiting for perfect conditions, this shot represents the culmination of patience and vision. Each element in the frame was carefully considered to convey a sense of tranquility.",
+                "This photograph emerged from a personal project exploring human connection in urban environments. The candid moment captured reveals the unspoken stories between strangers in a bustling city.",
+                "Shot during a humanitarian mission, this image documents resilience and hope in challenging circumstances. The photographer spent days building trust with the community before capturing this authentic moment.",
+                "This conceptual piece was created to challenge perceptions of reality. The photographer used multiple exposures and creative lighting to build a narrative that exists between dreams and reality.",
+                "From a long-term documentary project, this frame represents a turning point in the story. The composition leads the viewer through a visual journey of transformation and growth.",
+                "Captured during a cultural festival that occurs only once every ten years, this photograph preserves a moment of tradition and celebration that few get to witness firsthand.",
+                "This experimental shot came from playing with unconventional techniques. The resulting image tells a story of creative freedom and the beauty found in unexpected results."
+            ];
+            
+            const story = stories[index] || stories[0];
+            
+            return `
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="${photo.urls.regular}" alt="${photo.alt_description || 'Story photograph'}" loading="lazy">
+                        <div class="story-number">${index + 1}</div>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="story-title">The Story Behind This Frame</h3>
+                        <div class="photographer-info">
+                            <i class="fas fa-camera"></i>
+                            <span>By ${photo.user.name}</span>
+                        </div>
+                        <p class="story-text">${story}</p>
+                        <div class="story-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>${Math.floor(Math.random() * 12) + 1} hours of work</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-heart"></i>
+                                <span>${photo.likes} appreciations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        imagesGrid.innerHTML = `
+            <div class="stories-intro">
+                <h3>Professional Photography</h3>
                 <p>Explore the art and science behind capturing frozen moments. Learn from professional photographers and their techniques.</p>
             </div>
-            
-            <div class="educational-tips">
-                <div class="tip-card">
-                    <i class="fas fa-camera"></i>
-                    <h4>Camera Settings for Snow</h4>
-                    <p>Use exposure compensation (+1 to +2) to prevent snow from looking gray. Shoot in RAW for better post-processing.</p>
-                </div>
-                <div class="tip-card">
-                    <i class="fas fa-sun"></i>
-                    <h4>Golden Hour Magic</h4>
-                    <p>Winter golden hour creates stunning pink and blue tones on ice. Plan shoots around sunrise/sunset.</p>
-                </div>
-                <div class="tip-card">
-                    <i class="fas fa-hands"></i>
-                    <h4>Gear Protection</h4>
-                    <p>Keep equipment in sealed bags when moving between temperatures to prevent condensation damage.</p>
-                </div>
+            <div class="stories-grid">
+                ${storiesHTML}
             </div>
         `;
         
-        imagesGrid.innerHTML = iceLensHTML;
+        hideLoading();
         
-        // Load professional winter photos
-        loadProfessionalWinterPhotos();
-        
-    }, 1000);
+    } catch (error) {
+        console.error('Error loading stories:', error);
+        showError('Failed to load stories. Please try again.');
+        hideLoading();
+    }
 }
 
 // Load professional photos for Ice Lens
@@ -358,48 +422,6 @@ function showUserUploadsPlaceholder() {
             <button class="upload-btn">Upload Photos</button>
         </div>
     `;
-    
-    // Add some CSS for the placeholder (you can move this to CSS file)
-    const style = document.createElement('style');
-    style.textContent = `
-        .user-uploads-placeholder {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-gray);
-        }
-        
-        .user-uploads-placeholder i {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .user-uploads-placeholder h3 {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .upload-btn {
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: var(--bg-dark);
-            border: none;
-            border-radius: 25px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .upload-btn:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
-    `;
-    document.head.appendChild(style);
 }
 
 // Snowfall Generator
@@ -446,15 +468,3 @@ function showError(message) {
         </div>
     `;
 }
-
-
-
-
-
-
-
-
-
-
-
-
