@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrostFrame - Gallery</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="ligthbox.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="snow-container" id="snowContainer"></div>
+
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <i class="fas fa-snowflake logo-icon"></i>
+        <span class="logo-text">FrostFrame</span>
+      </a>
+
+      <div class="search-container">
+        <div class="search-bar">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search glacial wonders...">
+          <button class="search-btn">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <span class="nav-link active" data-page="explore">Explore</span>
+        
+        <div class="dropdown" id="collectionsDropdown">
+          <span class="nav-link dropdown-toggle">
+            Collections
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </span>
+          <div class="dropdown-menu">
+            <span class="dropdown-item" data-category="beauty">Beauty</span>
+            <span class="dropdown-item" data-category="nature">Nature</span>
+            <span class="dropdown-item" data-category="people">People</span>
+            <span class="dropdown-item" data-category="lifestyle">Lifestyle</span>
+          </div>
+        </div>
+        
+        <span class="nav-link" data-page="icelens">Ice Lens</span>
+        <span class="special-link" data-page="frozenframes">
+          <i class="fas fa-user"></i>
+          Frozen Frames
+        </span>
+      </div>
+    </nav>
+
+    <div class="header-content">
+      <h1 class="header-title">Visual Escapes</h1>
+      <div class="ice-divider"></div>
+      <p class="header-subtitle">Discover breathtaking journey through frozen moments and fleeting emotions.</p>
+    </div>
+  </header>
+
+  <section class="gallery-section">
+    <div class="gallery-container">
+      <div class="images-grid" id="imagesGrid"></div>
+      <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <i class="fas fa-snowflake fa-spin"></i> Loading glacial wonders...
+      </div>
+      <button class="load-more-btn" id="loadMoreBtn" style="display: none;">
+        <i class="fas fa-plus"></i> Load More Images
+      </button>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">
+      <i class="fas fa-times"></i>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-image" id="lightboxImage">
+    </div>
+    <div class="lightbox-info" id="lightboxInfo">
+      <div class="lightbox-author"></div>
+      <div class="lightbox-description"></div>
+    </div>
+  </div>
+
+  <input type="file" id="fileInput" accept="image/*" multiple>
+  <script src="scripts.js"></script>
+</body>
+</html>
