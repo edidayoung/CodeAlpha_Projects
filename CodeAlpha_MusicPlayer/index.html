@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="player-section">
+            <div class="background-overlay" id="backgroundOverlay"></div>
+            
+            <div class="album-art" id="albumArt">
+                <div class="album-art-circle" id="albumArtCircle">🎵</div>
+            </div>
+            
+            <div class="song-info">
+                <div class="song-title" id="songTitle">Select a song</div>
+                <div class="song-artist" id="songArtist">Choose from playlist below</div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="time-info">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn" id="shuffleBtn" title="Shuffle">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button class="control-btn seek-btn" id="backward10Btn" title="Backward 10s">
+                    -10
+                </button>
+                <button class="control-btn" id="prevBtn" title="Previous">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="control-btn play-btn" id="playBtn" title="Play/Pause">
+                    <i class="fas fa-play" id="playIcon"></i>
+                    <i class="fas fa-pause" id="pauseIcon" style="display: none;"></i>
+                </button>
+                <button class="control-btn" id="nextBtn" title="Next">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="control-btn seek-btn" id="forward30Btn" title="Forward 30s">
+                    +30
+                </button>
+                <button class="control-btn" id="repeatBtn" title="Repeat">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+
+            <div class="volume-container">
+                <div class="volume-icon" id="volumeIcon">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+            </div>
+        </div>
+
+        <div class="playlist-section">
+            <div class="playlist-header">
+                <div class="playlist-title">Playlist</div>
+                <div class="playlist-controls">
+                    <input type="file" id="fileInput" class="file-input" accept="audio/*" multiple>
+                    <label for="fileInput" class="file-input-label">
+                        <i class="fas fa-plus"></i> Add Music
+                    </label>
+                    <button class="create-playlist-btn" id="createPlaylistBtn">
+                        <i class="fas fa-list"></i> Create Playlist
+                    </button>
+                </div>
+            </div>
+            <div class="playlist-manager">
+                <div class="playlist-tabs">
+                    <button class="playlist-tab active" data-playlist="current">Current Playlist</button>
+                    <button class="playlist-tab" data-playlist="saved">Saved Playlists</button>
+                </div>
+                <div id="playlist" class="playlist-content active"></div>
+                <div id="savedPlaylists" class="playlist-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="playlistModal">
+        <div class="modal-content">
+            <h2>Create New Playlist</h2>
+            <input type="text" id="playlistName" placeholder="Enter playlist name">
+            <div class="playlist-songs-selection">
+                <h3>Select Songs</h3>
+                <div class="songs-checkboxes" id="songsCheckboxes">
+                    <!-- Songs will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="cancelPlaylist">Cancel</button>
+                <button class="modal-btn create" id="createPlaylist">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio"></audio>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
