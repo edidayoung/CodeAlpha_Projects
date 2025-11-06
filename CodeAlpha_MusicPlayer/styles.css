@@ -600,6 +600,16 @@ body {
         width: 100%;
         justify-content: center;
     }
+
+    /* Add to your existing CSS */
+    .control-btn, .playlist-item, .file-input-label, .create-playlist-btn {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    }
+
+    .playlist-item {
+    min-height: 60px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -632,4 +642,26 @@ body {
     .controls {
         flex-wrap: wrap;
     } 
+
+    /* Add to your existing CSS */
+    .control-btn, .playlist-item, .file-input-label, .create-playlist-btn {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    }
+
+    .playlist-item {
+    min-height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .control-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .play-btn {
+        min-width: 60px;
+        min-height: 60px;
+    }
 }

@@ -78,13 +78,16 @@ let currentPlaylist = [...defaultPlaylist];
 let currentSongIndex = 0;
 let isPlaying = false;
 let isShuffled = false;
-let repeatMode = 0; // 0: no repeat, 1: repeat all, 2: repeat one
+let repeatMode = 0;
 let userPlaylists = [];
+let userInteracted = false; // Track if user has interacted
 
 // Initialize the player
 function initPlayer() {
     initPlaylist();
-    loadSong(0);
+    loadSong(0, false); // Load first song but don't autoplay
+    
+    // Set initial volume
     audio.volume = volumeSlider.value / 100;
     
     // Set up event listeners
@@ -93,9 +96,10 @@ function initPlayer() {
 
 // Set up all event listeners
 function setupEventListeners() {
-    playBtn.addEventListener('click', togglePlay);
-    prevBtn.addEventListener('click', prevSong);
-    nextBtn.addEventListener('click', nextSong);
+    // Use click events for mobile compatibility
+    playBtn.addEventListener('click', handlePlayButton);
+    prevBtn.addEventListener('click', handlePrevButton);
+    nextBtn.addEventListener('click', handleNextButton);
     backward10Btn.addEventListener('click', () => seek(-10));
     forward30Btn.addEventListener('click', () => seek(30));
     shuffleBtn.addEventListener('click', toggleShuffle);
@@ -108,9 +112,15 @@ function setupEventListeners() {
     cancelPlaylist.addEventListener('click', hidePlaylistModal);
     createPlaylist.addEventListener('click', createNewPlaylist);
 
+    // Add touch events for mobile
+    playBtn.addEventListener('touchend', handlePlayButton);
+    prevBtn.addEventListener('touchend', handlePrevButton);
+    nextBtn.addEventListener('touchend', handleNextButton);
+
     // Playlist tab switching
     playlistTabs.forEach(tab => {
         tab.addEventListener('click', () => switchPlaylistTab(tab.dataset.playlist));
+        tab.addEventListener('touchend', () => switchPlaylistTab(tab.dataset.playlist));
     });
 
     // Audio event listeners
@@ -119,6 +129,36 @@ function setupEventListeners() {
     audio.addEventListener('timeupdate', updateProgress);
     audio.addEventListener('ended', handleSongEnd);
     audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('canplaythrough', onAudioReady);
+    
+    // Mark user interaction on any touch/click
+    document.addEventListener('click', markUserInteraction);
+    document.addEventListener('touchend', markUserInteraction);
+}
+
+function markUserInteraction() {
+    userInteracted = true;
+}
+
+function handlePlayButton(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    markUserInteraction();
+    togglePlay();
+}
+
+function handlePrevButton(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    markUserInteraction();
+    prevSong();
+}
+
+function handleNextButton(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    markUserInteraction();
+    nextSong();
 }
 
 // Switch between playlist tabs
@@ -153,9 +193,16 @@ function initPlaylist() {
             <div class="playlist-item-duration">${song.duration}</div>
         `;
         
-        item.addEventListener('click', () => loadSong(index));
+        // Use both click and touch events for mobile
+        item.addEventListener('click', () => handlePlaylistItemClick(index));
+        item.addEventListener('touchend', () => handlePlaylistItemClick(index));
         playlistEl.appendChild(item);
     });
+}
+
+function handlePlaylistItemClick(index) {
+    markUserInteraction();
+    loadSong(index, true);
 }
 
 // Load saved playlists
@@ -186,30 +233,17 @@ function loadSavedPlaylists() {
     });
 }
 
-// Load a playlist to the player
-function loadPlaylistToPlayer(playlistIndex) {
-    currentPlaylist = [...userPlaylists[playlistIndex].songs];
-    currentSongIndex = 0;
-    initPlaylist();
-    loadSong(0);
-    switchPlaylistTab('current');
-}
-
-// Add playlist to current playlist
-function addPlaylistToCurrent(playlistIndex) {
-    const playlistToAdd = userPlaylists[playlistIndex].songs;
-    currentPlaylist = [...currentPlaylist, ...playlistToAdd];
-    initPlaylist();
-    switchPlaylistTab('current');
-}
-
 // Load a song
-function loadSong(index) {
+function loadSong(index, shouldPlay = false) {
     if (index < 0 || index >= currentPlaylist.length) return;
     
     currentSongIndex = index;
     const song = currentPlaylist[index];
     
+    // Pause current audio first
+    audio.pause();
+    
+    // Set new source
     audio.src = song.url;
     songTitle.textContent = song.title;
     songArtist.textContent = song.artist;
@@ -225,9 +259,31 @@ function loadSong(index) {
     // Update active playlist item
     updatePlaylistDisplay();
     
-    if (isPlaying) {
-        audio.play();
+    // Load the audio but don't play automatically
+    audio.load();
+    
+    if (shouldPlay && userInteracted) {
+        // Only play if user interacted and shouldPlay is true
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log('Auto-play prevented:', error);
+                // Show play button instead
+                isPlaying = false;
+                updatePlayButton();
+            });
+        }
+    } else {
+        // Ensure UI shows paused state
+        isPlaying = false;
+        updatePlayButton();
     }
+}
+
+function onAudioReady() {
+    // Audio is ready to play
+    console.log('Audio ready to play');
 }
 
 // Update playlist display
@@ -238,31 +294,51 @@ function updatePlaylistDisplay() {
     });
 }
 
+// Update play button state
+function updatePlayButton() {
+    if (isPlaying) {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        document.querySelector('.album-art').classList.add('playing');
+    } else {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        document.querySelector('.album-art').classList.remove('playing');
+    }
+}
+
 // Play/Pause toggle
 function togglePlay() {
     if (!audio.src) {
-        loadSong(0);
+        loadSong(0, true);
+        return;
     }
     
     if (isPlaying) {
         audio.pause();
     } else {
-        audio.play();
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log('Play failed:', error);
+                // If play fails, try loading the song first
+                loadSong(currentSongIndex, true);
+            });
+        }
     }
 }
 
 // Previous song
 function prevSong() {
     currentSongIndex = (currentSongIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
-    loadSong(currentSongIndex);
-    if (isPlaying) audio.play();
+    loadSong(currentSongIndex, true);
 }
 
 // Next song
 function nextSong() {
     currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
-    loadSong(currentSongIndex);
-    if (isPlaying) audio.play();
+    loadSong(currentSongIndex, true);
 }
 
 // Seek forward or backward
@@ -490,24 +566,35 @@ function getRandomColor() {
 // Handle play event
 function onPlay() {
     isPlaying = true;
-    playIcon.style.display = 'none';
-    pauseIcon.style.display = 'block';
-    document.querySelector('.album-art').classList.add('playing');
+    updatePlayButton();
 }
 
 // Handle pause event
 function onPause() {
     isPlaying = false;
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
-    document.querySelector('.album-art').classList.remove('playing');
+    updatePlayButton();
 }
 
 // Make functions available globally for onclick handlers
 window.loadPlaylistToPlayer = loadPlaylistToPlayer;
 window.addPlaylistToCurrent = addPlaylistToCurrent;
 
+// Load a playlist to the player
+function loadPlaylistToPlayer(playlistIndex) {
+    currentPlaylist = [...userPlaylists[playlistIndex].songs];
+    currentSongIndex = 0;
+    initPlaylist();
+    loadSong(0, false);
+    switchPlaylistTab('current');
+}
+
+// Add playlist to current playlist
+function addPlaylistToCurrent(playlistIndex) {
+    const playlistToAdd = userPlaylists[playlistIndex].songs;
+    currentPlaylist = [...currentPlaylist, ...playlistToAdd];
+    initPlaylist();
+    switchPlaylistTab('current');
+}
+
 // Initialize the player when the page loads
 window.addEventListener('DOMContentLoaded', initPlayer);
-
-
